@@ -1,0 +1,126 @@
+{
+	"recettes":
+	[
+	   {
+		  "name":"Pate",
+		  "img":"https://www.serebii.net//swordshield/pokemon/small/810.png",
+		  "num": 1,
+		  "dureePreparation": 45,
+		  "dureeCuisson": 10,
+		  "difficulte": 4,
+		  "description": "POUET CEST BON",
+		  "ingredients": [
+			  {
+				  "name": "oeuf",
+				  "category": "accessoire",
+				  "quantite": 3,
+				  "unite": "unite"
+			  },
+			  {
+				"name": "lait",
+				"category": "frais",
+				"quantite": 500,
+				"unite": "mL"
+			}
+		  ]
+	   },
+	   {
+		  "name":"Taboulé frais au jus de tomate",
+		  "img":"https://img.cuisineaz.com/660x660/2015/05/05/i112976-taboule-frais-au-jus-de-tomate.webp",
+		  "num": 2,
+		  "dureePreparation": 45,
+		  "dureeCuisson": 10,
+		  "difficulte": 3,
+		  "description": "POUET CEST BON",
+		  "ingredients": [
+			  {
+				  "name": "couscous",
+				  "category": "pate",
+				  "specificité": "moyen",
+				  "quantite": 250,
+				  "unite": "g"
+			  },
+			  {
+				"name": "tomate",
+				"category": "frais",
+				"specificité": "séchées",
+				"quantite": 3,
+				"unite": "unite"
+			}
+		  ]
+	   },
+	   {
+		  "name":"Rillaboom",
+		  "img":"https://www.serebii.net//swordshield/pokemon/small/812.png",
+		  "num": 3,
+		  "dureePreparation": 45,
+		  "dureeCuisson": 10,
+		  "difficulte": 2,
+		  "description": "tutututu",
+		  "ingredients": [
+			  {
+				  "name": "couscous",
+				  "category": "pate",
+				  "specificité": "moyen",
+				  "quantite": 250,
+				  "unite": "g"
+			  },
+			  {
+				"name": "tomate",
+				"category": "frais",
+				"specificité": "séchées",
+				"quantite": 3,
+				"unite": "unite"
+			}
+		  ]
+	   },
+	   {
+		  "name":"Scorbunny",
+		  "img":"https://www.serebii.net//swordshield/pokemon/small/813.png",
+		  "num": 4,
+		  "dureePreparation": 45,
+		  "dureeCuisson": 10,
+		  "difficulte": 2,
+		  "description": "hihihihih",
+		  "ingredients": [
+			  {
+				  "name": "oeuf",
+				  "category": "frais",
+				  "quantite": 3,
+				  "unite": "unite"
+			  },
+			  {
+				"name": "lait",
+				"category": "frais",
+				"quantite": 500,
+				"unite": "mL"
+			}
+		  ]
+	   },
+	   {
+		  "name":"Raboot",
+		  "img":"https://www.serebii.net//swordshield/pokemon/small/814.png",
+		  "num": 5,
+		  "dureePreparation": 45,
+		  "dureeCuisson": 10,
+		  "difficulte": 1,
+		  "description": "Recette de merde",
+		  "ingredients": [
+			  {
+				  "name": "oeuf",
+				  "category": "frais",
+				  "quantite": 3,
+				  "unite": "unite"
+			  },
+			  {
+				"name": "lait",
+				"category": "frais",
+				"quantite": 500,
+				"unite": "mL"
+			}
+		  ]
+	   }
+
+	]
+ }
+
