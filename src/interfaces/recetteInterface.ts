@@ -14,4 +14,5 @@ export interface ingredientInferface{
     category: string;
     quantite: number;
     unite: string;
+    specificite?: string;
 }

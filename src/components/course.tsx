@@ -50,6 +50,7 @@ export default function Course({recettes}: courseInterface){
                     category: ingredientsToAdd[0].category,
                     unite: ingredientsToAdd[0].unite,
                     quantite: newIngredientQuantity,
+                    specificite: ingredientsToAdd[0].specificite
                 };
                 mergedIngredients = [...mergedIngredients, newIngredient]
             }
@@ -71,7 +72,7 @@ export default function Course({recettes}: courseInterface){
               {
                   
                   value.map((ingredient)=><ListItem disablePadding>
-                  {ingredient.name}: {ingredient.quantite} {ingredient.unite}
+                  {ingredient.name} {ingredient.specificite || ""}: {ingredient.quantite} {ingredient.unite}
               </ListItem>)
               
               }

@@ -6,6 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import TimerIcon from '@mui/icons-material/Timer';
+import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import DoneIcon from '@mui/icons-material/Done';
 import { recetteInterface } from '../interfaces/recetteInterface';
 import { Collapse, IconButton, IconButtonProps, styled } from '@mui/material';
@@ -56,10 +58,16 @@ export default function MediaCard({recette, selected, addRecipe, removeRecipe}: 
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-      <Typography variant="body2" component="div">
-          {
-              Array.from(Array(recette.difficulte)).map(() => <span role="img" aria-label="difficulty">💪</span>)
+      <Typography variant="body2" component="div" style={{display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
+            <div style={{paddingRight: "6px"}}>
+            <TimerIcon fontSize="small"/> {recette.dureePreparation} min | <OutdoorGrillIcon fontSize="small"/> {recette.dureeCuisson} min
+            </div>
+            <div style={{display: "flex"}}>
+            {
+              Array.from(Array(recette.difficulte)).map(() => <span style={{display: "flex"}} role="img" aria-label="difficulty">💪</span>)
           }
+            </div>
+
         </Typography>
         <ExpandMore
           expand={expanded}
@@ -81,9 +89,9 @@ export default function MediaCard({recette, selected, addRecipe, removeRecipe}: 
           </Typography>
         </CardContent>
       </Collapse>
-      <CardActions>
-        <Button size="small" color="error" onClick={()=>removeRecipe(recette.num)}>Retirer de la liste</Button>
-        <Button size="small" onClick={()=>addRecipe(recette.num)}>Ajouter à la liste</Button>
+      <CardActions style={{justifyContent: "end"}}>
+        <Button variant="outlined" disabled={!selected} size="small" color="error" onClick={()=>removeRecipe(recette.num)}>Retirer</Button>
+        <Button variant="outlined" disabled={selected} size="small" color="success" onClick={()=>addRecipe(recette.num)}>Ajouter</Button>
       </CardActions>
     </Card>
   );

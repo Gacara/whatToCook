@@ -36,14 +36,14 @@
 			  {
 				  "name": "couscous",
 				  "category": "pate",
-				  "specificité": "moyen",
+				  "specificite": "moyen",
 				  "quantite": 250,
 				  "unite": "g"
 			  },
 			  {
 				"name": "tomate",
 				"category": "frais",
-				"specificité": "séchées",
+				"specificite": "rouge",
 				"quantite": 3,
 				"unite": "unite"
 			}
@@ -61,14 +61,14 @@
 			  {
 				  "name": "couscous",
 				  "category": "pate",
-				  "specificité": "moyen",
+				  "specificite": "moyen",
 				  "quantite": 250,
 				  "unite": "g"
 			  },
 			  {
 				"name": "tomate",
 				"category": "frais",
-				"specificité": "séchées",
+				"specificite": "séchées",
 				"quantite": 3,
 				"unite": "unite"
 			}

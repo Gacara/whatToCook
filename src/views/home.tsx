@@ -3,7 +3,7 @@ import data from "../data.json";
 import Card from "../components/card";
 import { Theme, useTheme } from '@mui/material/styles';
 import { recetteInterface } from "../interfaces/recetteInterface";
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Modal, OutlinedInput, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Modal, OutlinedInput, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
 import { flatten, uniq } from "lodash";
 import Course from "../components/course";
 
@@ -40,6 +40,11 @@ export default function Home(){
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [nbRecette, setNbRecette] = React.useState<string>('1');
+
+    const handleRecetteChange = (event: SelectChangeEvent) => {
+        setNbRecette(event.target.value);
+    };
     
     function listIngredients(){
         const allIngredients = flatten(recettes.map((rec) => rec.ingredients));
@@ -81,7 +86,6 @@ function getStyles(name: string, personName: string[], theme: Theme) {
       target: { value },
     } = event;
     setIngredientsFiltered(
-      // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
   };
@@ -90,29 +94,56 @@ function getStyles(name: string, personName: string[], theme: Theme) {
       const ingredientsUsed = ingredientsFiltered.length > 0 ? ingredientsFiltered : ingredients;
       return recettes.filter((rec) => rec.name.includes(searchRecette) && flatten(rec.ingredients.filter((ing)=>ingredientsUsed.includes(ing.name))).length > 0);
   }
-  
+  function getRandomArrayElements(count: number) {
+    var shuffled = recettes.slice(0), i = recettes.length, min = i - count, temp, index;
+    while (i-- > min) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(min);
+}
+
+  function recetteAleatoire(){
+    const recetteAleatoire = getRandomArrayElements(parseInt(nbRecette, 10));
+
+    setRecetteSaved(recetteAleatoire);
+  }
     return (
         <div style={{width: "100%"}}>
             <Grid container spacing={2} style={{marginBottom: "32px"}}>
-  <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4}>
+                <p>Nombre de recettes: {recetteSaved.length}</p>
 
-  </Grid>
-  <Grid item xs={12} sm={6} md={4}>
-  <p>Nombre de recettes: {recetteSaved.length}</p>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                Générer
+            <FormControl style={{padding: "0 6px"}}>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={nbRecette}
+                    onChange={handleRecetteChange}
+                >
+                    {
+                        Array.from(Array(recettes.length).keys()).map((value) =>  <MenuItem value={value}>{`${value}`}</MenuItem>)
+                    }
+                </Select>
+                </FormControl>
+                recettes
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <Button variant="outlined" onClick={recetteAleatoire}> ALEATOIRE</Button>
+            </Grid>
+            </Grid>
 
-</Grid>
-<Grid item xs={12} sm={6} md={4}>
-     
-</Grid>
-  </Grid>
-
-
-<Grid container spacing={2} style={{marginBottom: "32px"}}>
-  <Grid item xs={12} sm={6} md={4}>
-    <FormControl sx={{ m: 1, width: 300, paddingBottom: "16px" }}>
-        <TextField id="outlined-basic" label="Recettes" variant="outlined" value={searchRecette} onChange={(e) => setSearchRecette(e.target.value)}/>
-      </FormControl>
-  </Grid>
+        <Grid container spacing={2} style={{marginBottom: "32px"}}>
+        <Grid item xs={12} sm={6} md={4}>
+            <FormControl sx={{ m: 1, width: 300, paddingBottom: "16px" }}>
+                <TextField id="outlined-basic" label="Recettes" variant="outlined" value={searchRecette} onChange={(e) => setSearchRecette(e.target.value)}/>
+            </FormControl>
+        </Grid>
   <Grid item xs={12} sm={6} md={4}>
   <FormControl sx={{ m: 1, width: 300, paddingBottom: "16px" }}>
         <InputLabel id="demo-multiple-name-label">Ingredients</InputLabel>
