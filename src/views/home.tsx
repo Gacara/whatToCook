@@ -113,7 +113,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
         <TextField id="outlined-basic" label="Recettes" variant="outlined" value={searchRecette} onChange={(e) => setSearchRecette(e.target.value)}/>
       </FormControl>
   </Grid>
-  <Grid item xs={4} md={4}>
+  <Grid item xs={12} sm={6} md={4}>
   <FormControl sx={{ m: 1, width: 300, paddingBottom: "16px" }}>
         <InputLabel id="demo-multiple-name-label">Ingredients</InputLabel>
         <Select
@@ -138,7 +138,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
       </FormControl>
   </Grid>
 
-  <Grid item xs={4} md={4}>
+  <Grid item xs={12} sm={6} md={4}>
     <FormControl sx={{ m: 1, width: 300, paddingTop: "12px", paddingBottom: "16px" }}>
     <Button variant="outlined" onClick={handleOpen}>Générer la liste de courses</Button>
         <Modal
