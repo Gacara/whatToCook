@@ -74,7 +74,7 @@ export default function Course({recettes}: courseInterface){
             
               {
                   
-                  filterByIngredient(value).map((ingredient)=><ListItem disablePadding style={{display: "flex", justifyContent: "space-between"}}>
+                  filterByIngredient(value).map((ingredient)=><ListItem disablePadding style={{display: "flex", justifyContent: "space-between", paddingBottom: "6px"}}>
                   <div>
                     {ingredient.name} {ingredient.specificite || ""} : {ingredient.quantite} {ingredient.unite}
                   </div>
