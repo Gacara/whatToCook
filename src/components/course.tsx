@@ -69,12 +69,12 @@ export default function Course({recettes}: courseInterface){
               Object.entries(defineIngredientsByCategory(formatedIngredientsList)).map(([key, value])=>
               <>
                 {
-                    filterByIngredient(value).length > 0 && <b style={{padding: "3px 0"}}>Rayon: {key}</b>
+                    filterByIngredient(value).length > 0 && <b>Rayon: {key}</b>
                 }
             
               {
                   
-                  filterByIngredient(value).map((ingredient)=><ListItem disablePadding style={{display: "flex", justifyContent: "space-between", paddingBottom: "6px"}}>
+                  filterByIngredient(value).map((ingredient)=><ListItem disablePadding style={{display: "flex", justifyContent: "space-between", paddingBottom: "2px"}}>
                   <div>
                     {ingredient.name} {ingredient.specificite || ""} : {ingredient.quantite} {ingredient.unite}
                   </div>
@@ -82,7 +82,9 @@ export default function Course({recettes}: courseInterface){
               </ListItem>)
               
               }
-               <Divider style={{paddingTop: "10px"}} />
+               {
+                   filterByIngredient(value).length > 0 && <Divider style={{paddingTop: "10px"}} />
+               }
               </>
            
               )
