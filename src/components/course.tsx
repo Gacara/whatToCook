@@ -72,7 +72,7 @@ export default function Course({recettes}: courseInterface){
               {
                   
                   value.map((ingredient)=><ListItem disablePadding>
-                  {ingredient.name} {ingredient.specificite || ""}: {ingredient.quantite} {ingredient.unite}
+                  {ingredient.name} {ingredient.specificite || ""} : {ingredient.quantite} {ingredient.unite}
               </ListItem>)
               
               }

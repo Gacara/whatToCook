@@ -44,6 +44,7 @@ export default function Home(){
     const [nbRecette, setNbRecette] = React.useState<string>('1');
 
     const handleRecetteChange = (event: SelectChangeEvent) => {
+        recetteAleatoire(event.target.value);
         setNbRecette(event.target.value);
     };
     
@@ -106,14 +107,14 @@ function getStyles(name: string, personName: string[], theme: Theme) {
     return shuffled.slice(min);
 }
 
-  function recetteAleatoire(){
-    const recetteAleatoire = getRandomArrayElements(parseInt(nbRecette, 10));
+  function recetteAleatoire(count: string){
+    const recetteAleatoire = getRandomArrayElements(parseInt(count, 10));
 
     setRecetteSaved(recetteAleatoire);
   }
     return (
         <div style={{width: "100%"}}>
-            <Grid container spacing={2} style={{marginBottom: "32px"}}>
+            <Grid container spacing={2} style={{marginBottom: "16px"}}>
             <Grid item xs={12} sm={6} md={4}>
                 <p>Nombre de recettes: {recetteSaved.length}</p>
 
@@ -128,25 +129,22 @@ function getStyles(name: string, personName: string[], theme: Theme) {
                     onChange={handleRecetteChange}
                 >
                     {
-                        Array.from(Array(recettes.length).keys()).map((value) =>  <MenuItem value={value}>{`${value}`}</MenuItem>)
+                        Array.from(Array(recettes.length+1).keys()).map((value) =>  <MenuItem value={value}>{`${value}`}</MenuItem>)
                     }
                 </Select>
                 </FormControl>
                 recettes
             </Grid>
-            <Grid item xs={12} sm={6} md={4} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                <Button variant="outlined" onClick={recetteAleatoire}> ALEATOIRE</Button>
-            </Grid>
             </Grid>
 
-        <Grid container spacing={2} style={{marginBottom: "32px"}}>
-        <Grid item xs={12} sm={6} md={4}>
-            <FormControl sx={{ m: 1, width: 300, paddingBottom: "16px" }}>
+        <Grid container spacing={2} style={{marginBottom: "16px"}}>
+        <Grid item xs={12} sm={6} md={4} style={{paddingTop: "0", display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <FormControl sx={{ m: 1, width: 300 }}>
                 <TextField id="outlined-basic" label="Recettes" variant="outlined" value={searchRecette} onChange={(e) => setSearchRecette(e.target.value)}/>
             </FormControl>
         </Grid>
-  <Grid item xs={12} sm={6} md={4}>
-  <FormControl sx={{ m: 1, width: 300, paddingBottom: "16px" }}>
+  <Grid item xs={12} sm={6} md={4} style={{paddingTop: "0", display: "flex", justifyContent: "center", alignItems: "center"}}>
+  <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="demo-multiple-name-label">Ingredients</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
@@ -170,9 +168,9 @@ function getStyles(name: string, personName: string[], theme: Theme) {
       </FormControl>
   </Grid>
 
-  <Grid item xs={12} sm={6} md={4}>
-    <FormControl sx={{ m: 1, width: 300, paddingTop: "12px", paddingBottom: "16px" }}>
-    <Button variant="outlined" onClick={handleOpen}>Générer la liste de courses</Button>
+  <Grid item xs={12} sm={6} md={4} style={{paddingTop: "0", display: "flex", justifyContent: "center", alignItems: "center"}}>
+    <FormControl sx={{ m: 1, width: 300, }}>
+    <Button variant="outlined" style={{height: "56px", padding: 0}} onClick={handleOpen}>Générer la liste de courses</Button>
         <Modal
         open={open}
         onClose={handleClose}
