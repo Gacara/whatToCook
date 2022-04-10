@@ -2,13 +2,13 @@
 	"recettes":
 	[
 	   {
-		  "name":"Pate",
-		  "img":"https://www.serebii.net//swordshield/pokemon/small/810.png",
+		  "name":"Pâté de Pâques berrichon",
+		  "img":"https://assets.afcdn.com/recipe/20130328/63792_w128h128c1cx992cy1400.webp",
 		  "num": 1,
 		  "dureePreparation": 45,
-		  "dureeCuisson": 10,
+		  "dureeCuisson": 30,
 		  "difficulte": 4,
-		  "description": "POUET CEST BON",
+		  "description": "ÉTAPE 8 Percer quelques trous sur le dessus et faire cuire 30 minutes à 200°C (thermostat 6-7).",
 		  "ingredients": [
 			  {
 				  "name": "oeuf",
@@ -21,6 +21,12 @@
 				"category": "frais",
 				"quantite": 500,
 				"unite": "mL"
+			},
+			{
+				"name": "viande hachee",
+				"category": "viande",
+				"quantite": 150,
+				"unite": "g"
 			}
 		  ]
 	   },
@@ -50,17 +56,17 @@
 		  ]
 	   },
 	   {
-		  "name":"Rillaboom",
-		  "img":"https://www.serebii.net//swordshield/pokemon/small/812.png",
+		  "name":"Asperge à la feta",
+		  "img":"https://assets.afcdn.com/recipe/20160922/1003_w1024h778c1cx2880cy1920.webp",
 		  "num": 3,
-		  "dureePreparation": 45,
-		  "dureeCuisson": 10,
-		  "difficulte": 2,
-		  "description": "tutututu",
+		  "dureePreparation": 25,
+		  "dureeCuisson": 0,
+		  "difficulte": 1,
+		  "description": "Asperge à la feta",
 		  "ingredients": [
 			  {
-				  "name": "couscous",
-				  "category": "pate",
+				  "name": "asperge",
+				  "category": "legume",
 				  "specificite": "moyen",
 				  "quantite": 250,
 				  "unite": "g"
@@ -71,17 +77,24 @@
 				"specificite": "séchées",
 				"quantite": 3,
 				"unite": "unite"
+			},
+			{
+				"name": "feta",
+				"category": "fromage",
+				"specificite": "bio",
+				"quantite": 200,
+				"unite": "g"
 			}
 		  ]
 	   },
 	   {
-		  "name":"Scorbunny",
-		  "img":"https://www.serebii.net//swordshield/pokemon/small/813.png",
+		  "name":"Salade de concombre au chèvre et olives",
+		  "img":"https://assets.afcdn.com/recipe/20161010/64090_w1024h778c1cx3680cy2456.webp",
 		  "num": 4,
-		  "dureePreparation": 45,
-		  "dureeCuisson": 10,
+		  "dureePreparation": 15,
+		  "dureeCuisson": 0,
 		  "difficulte": 2,
-		  "description": "hihihihih",
+		  "description": "ÉTAPE 1 concombre \n Peler et couper le concombre en rondelles et le faire dégorger.\n ÉTAPE 2 \nCouper le chêvre en petits morceaux..",
 		  "ingredients": [
 			  {
 				  "name": "oeuf",
@@ -94,17 +107,29 @@
 				"category": "frais",
 				"quantite": 500,
 				"unite": "mL"
+			},
+			{
+				"name": "concombre",
+				"category": "legume",
+				"quantite": 1,
+				"unite": "unite"
+			},
+			{
+				"name": "basilic",
+				"category": "herbes",
+				"quantite": 1,
+				"unite": "unite"
 			}
 		  ]
 	   },
 	   {
-		  "name":"Raboot",
-		  "img":"https://www.serebii.net//swordshield/pokemon/small/814.png",
+		  "name":"Oeuf nuage",
+		  "img":"https://assets.afcdn.com/recipe/20170821/71251_w128h128c1cx2000cy3000cxb4000cyb6000.webp",
 		  "num": 5,
-		  "dureePreparation": 45,
-		  "dureeCuisson": 10,
+		  "dureePreparation": 13,
+		  "dureeCuisson": 9,
 		  "difficulte": 1,
-		  "description": "Recette de merde",
+		  "description": "Retirer du four et déguster !",
 		  "ingredients": [
 			  {
 				  "name": "oeuf",
@@ -112,6 +137,12 @@
 				  "quantite": 3,
 				  "unite": "unite"
 			  },
+			  {
+				"name": "mozarella",
+				"category": "fromage",
+				"quantite": 125,
+				"unite": "g"
+			},
 			  {
 				"name": "lait",
 				"category": "frais",

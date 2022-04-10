@@ -59,8 +59,11 @@ export default function MediaCard({recette, selected, addRecipe, removeRecipe}: 
       </CardContent>
       <CardActions disableSpacing>
       <Typography variant="body2" component="div" style={{display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
-            <div style={{paddingRight: "6px"}}>
-            <TimerIcon fontSize="small"/> {recette.dureePreparation} min | <OutdoorGrillIcon fontSize="small"/> {recette.dureeCuisson} min
+            <div style={{paddingRight: "6px", display: "flex", paddingBottom: "6px"}}>
+            <TimerIcon fontSize="small"/> {recette.dureePreparation} min 
+            {
+              recette.dureeCuisson > 0 && <> |<OutdoorGrillIcon fontSize="small"/> {recette.dureeCuisson} min</>
+            }
             </div>
             <div style={{display: "flex"}}>
             {
