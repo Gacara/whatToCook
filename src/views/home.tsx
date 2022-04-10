@@ -124,7 +124,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
                 onClick={() => setFiltrer(!filtrer)}
                 style={{cursor: "pointer"}}
                 >
-                    Nombre de recettes: <b>{recetteSaved.length}</b> (<span style={{color: "#1976d2"}}>{`${filtrer ? "tout" : "filtrer"}`}</span>)
+                  Nombre de recettes: <b>{recetteSaved.length}/{recettes.length}</b> (<span style={{color: "#1976d2"}}>{`${filtrer ? "tout" : "filtrer"}`}</span>)
                 </p>
             </Grid>
             <Grid item xs={12} sm={6} md={4} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>

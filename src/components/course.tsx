@@ -1,7 +1,8 @@
+import React, { useState } from "react";
 import { Divider, List, ListItem } from "@mui/material";
 import { entries, flatten, uniq, uniqBy } from "lodash";
-import React from "react";
 import { ingredientInferface, recetteInterface } from "../interfaces/recetteInterface";
+import CloseIcon from '@mui/icons-material/Close';
 
 interface ingredientByCategoryInterface {
     [key: string]: ingredientInferface[];
@@ -15,6 +16,7 @@ export default function Course({recettes}: courseInterface){
 
     const allFlattenIngredients = flatten(recettes.map((recette)=> recette.ingredients.map((ingredient) => ingredient)));
     const formatedIngredientsList = formatIngredientsList(allFlattenIngredients);
+    const [deletedIngredients, setDeletedIngredients] = useState<string[]>([]);
 
     function defineIngredientsByCategory(ingredients: ingredientInferface[] |[]){
         let ingredientsByCategory: ingredientByCategoryInterface = {};
@@ -56,19 +58,27 @@ export default function Course({recettes}: courseInterface){
         return mergedIngredients;
     }
 
+    function filterByIngredient(ingredients: ingredientInferface[]){
+        const newIngredientByCategoryInterface = ingredients.filter((ingredient) => !deletedIngredients.includes(ingredient.name));
+        return newIngredientByCategoryInterface;
+    }
 
     return (
         <List>
             {
               Object.entries(defineIngredientsByCategory(formatedIngredientsList)).map(([key, value])=>
               <>
-
-              <b style={{padding: "3px 0"}}>Rayon: {key}</b>
-
+                {
+                    filterByIngredient(value).length > 0 && <b style={{padding: "3px 0"}}>Rayon: {key}</b>
+                }
+            
               {
                   
-                  value.map((ingredient)=><ListItem disablePadding>
-                  {ingredient.name} {ingredient.specificite || ""} : {ingredient.quantite} {ingredient.unite}
+                  filterByIngredient(value).map((ingredient)=><ListItem disablePadding style={{display: "flex", justifyContent: "space-between"}}>
+                  <div>
+                    {ingredient.name} {ingredient.specificite || ""} : {ingredient.quantite} {ingredient.unite}
+                  </div>
+                  <CloseIcon fontSize="small" onClick={()=> setDeletedIngredients([...deletedIngredients, ingredient.name])} />
               </ListItem>)
               
               }
