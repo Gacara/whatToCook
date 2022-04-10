@@ -7,10 +7,6 @@ interface ingredientByCategoryInterface {
     [key: string]: ingredientInferface[];
 }
 
-interface ingredientQuantityInterface {
-    [key: string]: number;
-}
-
 interface courseInterface{
     recettes: recetteInterface[]
 }

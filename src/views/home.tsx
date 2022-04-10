@@ -39,6 +39,8 @@ export default function Home(){
     const [ingredientsFiltered, setIngredientsFiltered] = useState<string[]>([]);
     const [searchRecette, setSearchRecette] = useState<string>("");
     const [open, setOpen] = React.useState(false);
+    const [filtrer, setFiltrer] = React.useState(false);
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [nbRecette, setNbRecette] = React.useState<string>('1');
@@ -94,6 +96,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
 
   function filterRecette(){
       const ingredientsUsed = ingredientsFiltered.length > 0 ? ingredientsFiltered : ingredients;
+      if(filtrer) return recetteSaved;
       return recettes.filter((rec) => rec.name.includes(searchRecette) && flatten(rec.ingredients.filter((ing)=>ingredientsUsed.includes(ing.name))).length > 0);
   }
   function getRandomArrayElements(count: number) {
@@ -116,8 +119,12 @@ function getStyles(name: string, personName: string[], theme: Theme) {
         <div style={{width: "100%"}}>
             <Grid container spacing={2} style={{marginBottom: "16px"}}>
             <Grid item xs={12} sm={6} md={4}>
-                <p>Nombre de recettes: {recetteSaved.length}</p>
-
+                <p 
+                onClick={() => setFiltrer(!filtrer)}
+                style={{cursor: "pointer"}}
+                >
+                    Nombre de recettes: <b>{recetteSaved.length}</b> (<span style={{color: "#1976d2"}}>{`${filtrer ? "tout" : "filtrer"}`}</span>)
+                </p>
             </Grid>
             <Grid item xs={12} sm={6} md={4} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 Générer
