@@ -96,11 +96,12 @@ function getStyles(name: string, personName: string[], theme: Theme) {
 
   function filterRecette(){
       const ingredientsUsed = ingredientsFiltered.length > 0 ? ingredientsFiltered : ingredients;
-      if(filtrer) return recetteSaved;
+      if(filtrer) return recetteSaved.filter((rec) => rec.name.includes(searchRecette) && flatten(rec.ingredients.filter((ing)=>ingredientsUsed.includes(ing.name))).length > 0);
       return recettes.filter((rec) => rec.name.includes(searchRecette) && flatten(rec.ingredients.filter((ing)=>ingredientsUsed.includes(ing.name))).length > 0);
   }
   function getRandomArrayElements(count: number) {
-    var shuffled = recettes.slice(0), i = recettes.length, min = i - count, temp, index;
+    const filtreredRecettes = filterRecette();
+    var shuffled = filtreredRecettes.slice(0), i = filtreredRecettes.length, min = i - count, temp, index;
     while (i-- > min) {
         index = Math.floor((i + 1) * Math.random());
         temp = shuffled[index];
@@ -136,7 +137,7 @@ function getStyles(name: string, personName: string[], theme: Theme) {
                     onChange={handleRecetteChange}
                 >
                     {
-                        Array.from(Array(recettes.length+1).keys()).map((value) =>  <MenuItem value={value}>{`${value}`}</MenuItem>)
+                        Array.from(Array(filterRecette().length+1).keys()).map((value) =>  <MenuItem value={value}>{`${value}`}</MenuItem>)
                     }
                 </Select>
                 </FormControl>
